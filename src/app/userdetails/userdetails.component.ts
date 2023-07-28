@@ -24,19 +24,21 @@ export class UserdetailsComponent implements OnInit {
       fName: new FormControl('', [
         Validators.required,
         Validators.maxLength(255),
+        Validators.pattern('[a-zA-Z][a-zA-Z]+'),
       ]),
       lName: new FormControl('', [
         Validators.required,
         Validators.maxLength(255),
+        Validators.pattern('[a-zA-Z][a-zA-Z]+')
       ]),
-      mName: new FormControl('', [Validators.maxLength(255)]),
+      mName: new FormControl('', [Validators.maxLength(255),Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       marital: new FormControl('', [Validators.required]),
       amount: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9].*'),
+        Validators.pattern('[0-9][0-9]+'),
       ]),
       dob: new FormControl('', [Validators.required]),
-      ssn: new FormControl('', [Validators.required]),
+      ssn: new FormControl('', [Validators.required,Validators.pattern('[0-9][0-9]+')]),
       purpose: new FormControl('', [Validators.required]),
       desc: new FormControl(''),
    
@@ -48,31 +50,33 @@ export class UserdetailsComponent implements OnInit {
       city: new FormControl('', [
         Validators.required,
         Validators.maxLength(255),
+        Validators.pattern('[a-zA-Z][a-zA-Z]+'),
       ]),
       state: new FormControl('', [
         Validators.required,
         Validators.maxLength(255),
+        Validators.pattern('[a-zA-Z][a-zA-Z]+')
       ]),
       postal: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9].*'),
+        Validators.pattern('[0-9][0-9]+'),
         Validators.minLength(5),
         Validators.maxLength(5),
       ]),
       home: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9].*'),
+        Validators.pattern('[0-9][0-9]+'),
         Validators.minLength(10),
         Validators.maxLength(10),
       ]),
       mobile: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9].*'),
+        Validators.pattern('[0-9][0-9]+'),
         Validators.minLength(10),
         Validators.maxLength(10),
       ]),
       office: new FormControl('', [
-        Validators.pattern('[0-9].*'),
+        Validators.pattern('[0-9][0-9]+'),
         Validators.minLength(10),
         Validators.maxLength(10),
       ]),
@@ -82,10 +86,11 @@ export class UserdetailsComponent implements OnInit {
         Validators.required,
         Validators.maxLength(255),
       ]),
-      exp: new FormControl(''),
+      month: new FormControl('',[Validators.required,Validators.pattern('[0-9][0-9]+')]),
+      year: new FormControl('',[Validators.required,Validators.pattern('[0-9][0-9]+')]),
       salary: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9].*'),
+        Validators.pattern('[0-9][0-9]+'),
       ]),
       designation: new FormControl('', [Validators.maxLength(255)]),
       offaddl1: new FormControl('', [
@@ -96,14 +101,16 @@ export class UserdetailsComponent implements OnInit {
       offcity: new FormControl('', [
         Validators.required,
         Validators.maxLength(255),
+        Validators.pattern('[a-zA-Z][a-zA-Z]+')
       ]),
       offstate: new FormControl('', [
         Validators.required,
         Validators.maxLength(255),
+        Validators.pattern('[a-zA-Z][a-zA-Z]+')
       ]),
       offpostal: new FormControl('', [
         Validators.required,
-        Validators.pattern('[0-9].*'),
+        Validators.pattern('[0-9][0-9]+'),
         Validators.minLength(5),
         Validators.maxLength(5),
       ]),
@@ -239,6 +246,14 @@ export class UserdetailsComponent implements OnInit {
 
   get Salary(): FormControl{
     return this.multistep.get('salary') as FormControl;
+  }
+
+  get year(): FormControl{
+    return this.multistep.get('year') as FormControl;
+  }
+
+  get month(): FormControl{
+    return this.multistep.get('month') as FormControl;
   }
 
   get Designation(): FormControl{

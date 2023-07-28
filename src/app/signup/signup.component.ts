@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
 
       Validators.maxLength(255),
 
-      Validators.pattern('[a-zA-Z].*'),
+      Validators.pattern('[a-zA-Z][a-zA-Z]+'),
     ]),
 
     lastName: new FormControl('', [
@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
 
       Validators.maxLength(255),
 
-      Validators.pattern('[a-zA-Z].*'),
+      Validators.pattern('[a-zA-Z][a-zA-Z]+'),
     ]),
 
     emailId: new FormControl('', [Validators.required, Validators.email]),
@@ -54,7 +54,7 @@ export class SignupComponent implements OnInit {
     phoneNumber: new FormControl('', [
       Validators.required,
 
-      Validators.pattern('[0-9].*'),
+      Validators.pattern('[0-9][0-9]+'),
 
       Validators.minLength(10),
 

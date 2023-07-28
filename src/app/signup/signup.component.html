@@ -46,6 +46,12 @@
           >
             First Name is too long.
           </div>
+          <div
+              class="form-text text-danger"
+              *ngIf="firstName.errors?.['pattern'] && (firstName.dirty || firstName.touched)"
+            >
+              First Name should be alphabetical.
+            </div>
         </div>
 
         <div class="col">
@@ -73,6 +79,12 @@
           >
             Last Name is too long.
           </div>
+          <div
+              class="form-text text-danger"
+              *ngIf="lastName.errors?.['pattern'] && (lastName.dirty || lastName.touched)"
+            >
+              Last Name should be alphabetical.
+            </div>
         </div>
       </div>
 
@@ -112,6 +124,8 @@
             class="form-control"
             formControlName="phoneNumber"
             [(ngModel)]="user.phoneNumber"
+            minlength="10"
+            maxlength="10"
           />
 
           <div
