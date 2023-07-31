@@ -1,23 +1,49 @@
+[11:34 PM] Ganesh Merugu
+
 <div class ="view-app-user">
+
   <h3>YOUR APPLICATIONS</h3>
 
+ 
+
   <table class="view-user-table table-striped ">
+
     <thead>
+
       <tr>
+
         <th>Application ID</th>
+
         <th>Loan Purpose</th>
+
         <th>Submitted Date</th>
+
         <th>Status</th>
+
       </tr>
+
     </thead>
+
     <tbody>
+
       <tr *ngFor= " let application of applications">
-        <td><a [routerLink]="['/preview/'+application.applicationId]">{{application.applicationId}}</a></td>
+
+        <td><a [routerLink]="['/preview',application.applicationId,application.ssnNumber]">{{application.applicationId}}</a></td>
+
         <td>{{application.loanPurpose}}</td>
+
         <td>{{application.submissionDate}}</td>
-        <td>{{application.status}}</td>
+
+        <td>Processed</td>
+
       </tr>
-    </tbody> 
+
+    </tbody>
+
   </table>
+
   <button class="btn" routerLink="/welcome">BACK</button>
+
 </div>
+
+ 

@@ -166,7 +166,7 @@
           <div class="col required">
             <label for="loanamount">Loan Amount ($)</label>
             <input
-              type="text"
+              type="number"
               required
               placeholder="$"
               formControlName="amount"
@@ -575,12 +575,6 @@
           >
             Please enter No. of Years.
           </div>
-          <div
-            class="form-text text-danger"
-            *ngIf="year.errors?.['pattern'] && (year.dirty || year.touched)"
-          >
-            Years should be numeric.
-          </div>
         </div>
         <div class="col col-md-3">
           <label>&nbsp;</label>
@@ -601,12 +595,6 @@
             *ngIf="month.errors?.['required'] && (month.dirty || month.touched)"
           >
             Please enter No. of Months.
-          </div>
-          <div
-            class="form-text text-danger"
-            *ngIf="month.errors?.['pattern'] && (month.dirty || month.touched)"
-          >
-            Months should be numeric.
           </div>
         </div>
       </div>
@@ -794,7 +782,7 @@
       </div>
       <div class="bn">
         <button class="btn2" (click)="previous()">PREVIOUS</button>
-        <button type="submit" class="btn3">SUBMIT</button>
+        <button type="submit" class="btn3" id="submitForm">SUBMIT</button>
       </div>
       <!-- <br>
         <pre>{{multistep.value | json}}</pre> -->

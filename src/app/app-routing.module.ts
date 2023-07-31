@@ -30,7 +30,7 @@ const routes: Routes = [
     component: UserdetailsComponent
   },
   {
-    path:'preview/:applicationId',
+    path:'preview/:applicationId/:ssnNumber',
     component:AppstatusComponent
   },
   {
